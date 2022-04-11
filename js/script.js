@@ -66,4 +66,50 @@
 // }
 
 
+//================================================================
+// scroll is not that effective , so we need INTERSECTION OBSERVER API
+// https://developer.mozilla.org/ru/docs/Web/API/Intersection_Observer_API
+
+// const slide = document.querySelector(".slide");
+// const hike = document.querySelector(".hike");
+
+// // let options = {
+// //     root: document.querySelector('#scrollArea'),
+// //     rootMargin: '0px',
+// //     threshold: 1.0
+// // }
+
+// let options = {
+//     // threshold: 1.0
+//     threshold: 0.9
+// }
+// let observer = new IntersectionObserver(slideAnimation, options);
+// function slideAnimation(entries) {
+//   entries.forEach(entry =>{
+//      console.log(entry); // IntersectionObserverEntry {time: 1837.8999999761581, rootBounds: DOMRectReadOnly, boundingClientRect: DOMRectReadOnly, intersectionRect: DOMRectReadOnly, isIntersecting: false, …}
+//   });
+// };
+// observer.observe(slide);
+// observer.observe(hike);
+
+//================================================================
+// 
+
+// const slide = document.querySelector(".slide");
+// const hike = document.querySelector(".hike");
+
+// let options = {
+//     threshold: 1.0
+// }
+// let observer = new IntersectionObserver(slideAnimation, options);
+// function slideAnimation(entries) {
+//   entries.forEach(entry =>{
+     
+//     if(entry.isIntersecting){
+//        slide.style.background = 'white';
+//     }
+//   });
+// };
+// observer.observe(slide);
+// observer.observe(hike);
 
