@@ -113,3 +113,22 @@
 // observer.observe(slide);
 // observer.observe(hike);
 
+//================================================================
+//scrollMagic
+// https://scrollmagic.io/
+
+
+const controller = new ScrollMagic.Controller(); 
+
+const exploreScene = new ScrollMagic.Scene({
+      triggerElement:'.hike-exp',
+      triggerHook: 0.5
+    // triggerHook: 0.25
+    // triggerHook: 0 //up
+    // triggerHook: 1 // down
+})
+// .addIndicators({colorStart: "white", colorTrigger: "white"})
+// .addTo(controller);
+.addIndicators({colorStart: "white", colorTrigger: "white"})
+.setClassToggle('.hike-exp', 'active')
+.addTo(controller);
