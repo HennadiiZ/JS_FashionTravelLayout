@@ -118,17 +118,55 @@
 // https://scrollmagic.io/
 
 
-const controller = new ScrollMagic.Controller(); 
+// const controller = new ScrollMagic.Controller(); 
 
-const exploreScene = new ScrollMagic.Scene({
-      triggerElement:'.hike-exp',
-      triggerHook: 0.5
-    // triggerHook: 0.25
-    // triggerHook: 0 //up
-    // triggerHook: 1 // down
-})
+// const exploreScene = new ScrollMagic.Scene({
+//       triggerElement:'.hike-exp',
+//       triggerHook: 0.5
+//     // triggerHook: 0.25
+//     // triggerHook: 0 //up
+//     // triggerHook: 1 // down
+// })
+// // .addIndicators({colorStart: "white", colorTrigger: "white"})
+// // .addTo(controller);
 // .addIndicators({colorStart: "white", colorTrigger: "white"})
+// .setClassToggle('.hike-exp', 'active')
 // .addTo(controller);
-.addIndicators({colorStart: "white", colorTrigger: "white"})
-.setClassToggle('.hike-exp', 'active')
-.addTo(controller);
+
+//================================================================
+//Gsap
+let controller;
+let slideScene;
+let pageScene;
+let detailScene;
+
+function animateSlides() {
+  //Init Controller
+  controller = new ScrollMagic.Controller();
+  //Select some things
+  const sliders = document.querySelectorAll(".slide");
+  const nav = document.querySelector(".nav-header");
+  //Loop over each slide
+  sliders.forEach((slide, index, slides) => {
+    const revealImg = slide.querySelector(".reveal-img");
+    const img = slide.querySelector("img");
+    const revealText = slide.querySelector(".reveal-text");
+    //GSAP
+    // gsap.to(revealImg, 1,{ x: "100%"})
+    // gsap.to(revealImg, 1,{ x: "100%", opacity: .5})
+
+    const slideTl = gsap.timeline({
+      defaults: { duration: 1, ease: "power2.inOut" }
+    });
+    slideTl.fromTo(revealImg, { x: "0%" }, { x: "100%" });
+    slideTl.fromTo(img, { scale: 2 }, { scale: 1 }, "-=1");
+    slideTl.fromTo(revealText, { x: "0%" }, { x: "100%" }, "-=0.75");
+    //Create Scene
+    slideScene = new ScrollMagic.Scene({
+      triggerElement: slide,
+      triggerHook: 0.25,
+      reverse: false
+    })
+  })
+}
+animateSlides();
