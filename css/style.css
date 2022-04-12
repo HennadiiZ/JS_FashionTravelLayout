@@ -160,7 +160,7 @@
     background: #17181a;
     left: 0;
     top: -15%;
-  } */
+} */
 
 
   /* JS starts here */
@@ -193,12 +193,15 @@
   }
 
 
-.active{
+/* .active{
     color: blue;
-}
+} */
 
-/* 
-  .title {
+.title {
+    position: relative;
+    overflow: hidden;
+}
+.title {
     position: relative;
     overflow: hidden;
   }
@@ -227,7 +230,8 @@
   body.hide {
     overflow: hidden;
   }
-   */
+
+
 
   
 
